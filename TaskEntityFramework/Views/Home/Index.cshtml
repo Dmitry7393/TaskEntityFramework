@@ -1,0 +1,30 @@
+﻿@model TaskEntityFramework.Models.DropDownList
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div align="center"> 
+        @using (Html.BeginForm("AddNewTypeOfProduct", "Home", FormMethod.Post))
+        {
+            <input type="text" size="20" id="product_type" name="product_type">
+            <input type="submit" value="Add type of product" />
+        }
+        </br>
+        @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
+        {
+             @Html.DropDownListFor(m => m.selectedId, Model.TypesOfProduct, "--Select One--")
+            <input type="text" size="20" id="product" name="product">
+            <input type="submit" value="Add product" />
+        }
+
+</div>
+</body>
+</html>
